@@ -1,0 +1,1178 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ömer Burhan Çınar</title>
+<meta name="description" content="Ömer Burhan Çınar — aspiring mechanical engineer from Gaziantep, Türkiye. Rocketry, leadership, travel and writing.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800;900&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<style>
+/* Layout: a technical drawing sheet. Drafting paper by day, blueprint by night; one safety-orange accent (the rocket's colour). */
+:root{
+  --paper:#ECEFEE; --surface:#F7F9F8; --ink:#14213A; --ink-soft:#4B5A73; --rule:#C6D0D5;
+  --grid:rgba(31,92,140,.075); --grid-strong:rgba(31,92,140,.16); --gear:rgba(20,33,58,.10);
+  --accent:#D9480F; --accent-ink:#FFFFFF; --accent-soft:rgba(217,72,15,.10); --shade:rgba(20,33,58,.06);
+  --f-display:"Big Shoulders Display","Arial Narrow","Roboto Condensed",Impact,sans-serif;
+  --f-body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;
+  --wrap:1180px; --gutter:clamp(16px,4vw,40px);
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#0D2136; --surface:#12304D; --ink:#E4EDF6; --ink-soft:#9BB1C9; --rule:#2B4A6B;
+  --grid:rgba(150,200,240,.06); --grid-strong:rgba(150,200,240,.13); --gear:rgba(170,210,245,.11);
+  --accent:#FF8645; --accent-ink:#0D2136; --accent-soft:rgba(255,134,69,.13); --shade:rgba(0,0,0,.25); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#0D2136; --surface:#12304D; --ink:#E4EDF6; --ink-soft:#9BB1C9; --rule:#2B4A6B;
+  --grid:rgba(150,200,240,.06); --grid-strong:rgba(150,200,240,.13); --gear:rgba(170,210,245,.11);
+  --accent:#FF8645; --accent-ink:#0D2136; --accent-soft:rgba(255,134,69,.13); --shade:rgba(0,0,0,.25); color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{background:var(--paper);color:var(--ink);font:400 16px/1.65 var(--f-body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+#bg{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+.page{position:relative;z-index:1}
+.wrap{max-width:var(--wrap);margin:0 auto;padding-inline:var(--gutter)}
+a{color:inherit}
+img{max-width:100%;display:block}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;margin:0;line-height:.95;letter-spacing:.005em}
+p{margin:0}
+.mono{font-family:var(--f-mono);font-size:.78rem;letter-spacing:.04em}
+.label{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+/* ---------- nav ---------- */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--paper) 86%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--rule)}
+.nav .wrap{display:flex;align-items:center;gap:20px;height:60px}
+.mark{font-family:var(--f-display);font-weight:900;font-size:1.5rem;text-decoration:none;display:flex;align-items:center;gap:10px;flex:none}
+.mark i{display:inline-grid;place-items:center;width:34px;height:34px;font-size:.78rem!important;border:2px solid var(--ink);border-radius:50%;font-style:normal;font-size:.95rem;position:relative}
+.mark i::after{content:"";position:absolute;inset:-7px;border:1px dashed var(--accent);border-radius:50%;animation:spin 18s linear infinite}
+.links{display:flex;gap:4px;margin-left:auto;overflow-x:auto;scrollbar-width:none;min-width:0}
+.links::-webkit-scrollbar{display:none}
+.links a{font-family:var(--f-mono);font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;padding:8px 12px;border-radius:999px;white-space:nowrap;color:var(--ink-soft)}
+.links a:hover{color:var(--ink);background:var(--shade)}
+.links a.on{color:var(--accent-ink);background:var(--accent)}
+.theme{flex:none;width:36px;height:36px;border-radius:50%;border:1px solid var(--rule);background:var(--surface);color:var(--ink);cursor:pointer;display:grid;place-items:center}
+.theme svg{width:18px;height:18px}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ---------- hero ---------- */
+.hero{padding-block:clamp(40px,7vw,88px) clamp(32px,5vw,64px)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.9fr);gap:clamp(28px,5vw,64px);align-items:center}
+.hero .eyebrow{display:flex;flex-wrap:wrap;gap:8px 18px;margin-bottom:22px}
+.hero .eyebrow span{display:inline-flex;align-items:center;gap:8px}
+.hero .eyebrow span::before{content:"";width:8px;height:8px;border:1.5px solid var(--accent);transform:rotate(45deg)}
+.hero h1{font-weight:900;font-size:clamp(3.2rem,9.6vw,7.6rem);text-transform:uppercase;line-height:.84;letter-spacing:-.01em}
+.hero h1 .l1{display:block}
+.hero h1 .l2{display:block;color:transparent;-webkit-text-stroke:2px var(--ink);position:relative}
+.hero h1 .l2 b{color:var(--accent);-webkit-text-stroke:0}
+.lede{font-size:clamp(1.08rem,1.6vw,1.28rem);line-height:1.55;max-width:34em;margin-top:26px;color:var(--ink)}
+.lede em{font-style:normal;background:linear-gradient(transparent 62%,var(--accent-soft) 62%)}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.btn{font-family:var(--f-mono);font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;padding:13px 20px;border:1.5px solid var(--ink);border-radius:2px;display:inline-flex;gap:10px;align-items:center;background:transparent;color:var(--ink);cursor:pointer;transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--accent)}
+.btn.solid{background:var(--ink);color:var(--paper)}
+
+/* figure with dimension lines */
+.fig{position:relative;padding:26px 26px 0 0}
+.fig .frame{position:relative;border:1.5px solid var(--ink);padding:8px;background:var(--surface)}
+.fig img{width:100%;aspect-ratio:4/5;object-fit:cover;filter:saturate(.92) contrast(1.03)}
+.dim{position:absolute;font-family:var(--f-mono);font-size:.68rem;color:var(--ink-soft);letter-spacing:.05em}
+.dim.top{top:0;left:0;right:26px;height:16px;border-inline:1px solid var(--ink-soft);display:flex;align-items:center;justify-content:center}
+.dim.top::before{content:"";position:absolute;left:0;right:0;top:50%;border-top:1px solid var(--ink-soft)}
+.dim.top span{position:relative;background:var(--paper);padding:0 8px}
+.dim.side{top:26px;bottom:0;right:0;width:16px;border-block:1px solid var(--ink-soft);display:flex;align-items:center;justify-content:center}
+.dim.side::before{content:"";position:absolute;top:0;bottom:0;left:50%;border-left:1px solid var(--ink-soft)}
+.dim.side span{position:relative;background:var(--paper);padding:8px 0;writing-mode:vertical-rl}
+.fig figcaption{margin-top:10px;display:flex;justify-content:space-between;gap:12px}
+.fig .tag{position:absolute;left:-14px;bottom:44px;background:var(--accent);color:var(--accent-ink);font-family:var(--f-mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;padding:7px 12px;transform:rotate(-3deg);box-shadow:3px 3px 0 var(--ink)}
+
+/* title block */
+.titleblock{margin-top:clamp(36px,5vw,56px);display:grid;grid-template-columns:repeat(6,minmax(0,1fr));border:1.5px solid var(--ink);background:var(--surface)}
+.titleblock div{padding:12px 14px;border-right:1px solid var(--rule);min-width:0}
+.titleblock div:last-child{border-right:0}
+.titleblock dt{font-family:var(--f-mono);font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft)}
+.titleblock dd{margin:4px 0 0;font-weight:600;font-size:.95rem;line-height:1.3}
+dl{margin:0}
+
+/* ---------- sections ---------- */
+section.sec{padding-block:clamp(56px,8vw,104px)}
+.sec-head{display:grid;grid-template-columns:auto minmax(0,1fr);gap:8px 28px;align-items:end;margin-bottom:clamp(28px,4vw,48px);border-bottom:1.5px solid var(--ink);padding-bottom:18px}
+.sec-head .sheet{grid-row:span 2;font-family:var(--f-mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;border:1.5px solid var(--ink);padding:8px 10px;line-height:1.5;text-align:center;align-self:stretch;display:flex;flex-direction:column;justify-content:center;background:var(--surface)}
+.sec-head .sheet b{display:block;font-family:var(--f-display);font-size:2.2rem;font-weight:900;letter-spacing:0;line-height:1;color:var(--accent)}
+.sec-head h2{font-size:clamp(2.6rem,6.5vw,4.8rem);font-weight:900;text-transform:uppercase}
+.sec-head p{color:var(--ink-soft);max-width:44em}
+
+.about{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,4vw,56px)}
+.about p+p{margin-top:1em}
+.about .big{font-family:var(--f-display);font-size:clamp(1.7rem,3.2vw,2.5rem);font-weight:800;line-height:1.05;text-transform:uppercase}
+.about .big span{color:var(--accent)}
+.traits{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:28px}
+.trait{border-top:3px solid var(--ink);padding-top:12px}
+.trait h3{font-size:1.45rem;font-weight:800;text-transform:uppercase}
+.trait p{font-size:.92rem;color:var(--ink-soft);margin-top:6px;line-height:1.5}
+
+/* ---------- engineering ---------- */
+.project{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(24px,4vw,48px);align-items:start}
+.media-stack{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.media-stack video{grid-column:span 2;width:100%;max-height:520px;object-fit:cover;background:#000;border:1.5px solid var(--ink)}
+.media-stack button{padding:0;border:1.5px solid var(--ink);background:none;cursor:zoom-in;overflow:hidden}
+.media-stack img{width:100%;aspect-ratio:3/4;object-fit:cover;transition:transform .4s}
+.media-stack button:hover img{transform:scale(1.04)}
+.project h3{font-size:clamp(2rem,4vw,3rem);font-weight:900;text-transform:uppercase}
+.project .meta{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 18px}
+.chip{font-family:var(--f-mono);font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--rule);background:var(--surface);padding:5px 10px;border-radius:999px;color:var(--ink-soft)}
+.chip.hot{border-color:var(--accent);color:var(--accent)}
+.project p+p{margin-top:.9em}
+.spec{margin-top:22px;border:1.5px solid var(--ink);background:var(--surface)}
+.spec div{display:grid;grid-template-columns:150px minmax(0,1fr);border-bottom:1px solid var(--rule)}
+.spec div:last-child{border-bottom:0}
+.spec dt,.spec dd{padding:9px 14px;margin:0}
+.spec dt{font-family:var(--f-mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);border-right:1px solid var(--rule);display:flex;align-items:center}
+.spec dd{font-size:.93rem}
+
+/* launch lab */
+.lab{margin-top:clamp(48px,6vw,80px);border:1.5px solid var(--ink);background:var(--surface);display:grid;grid-template-columns:300px minmax(0,1fr)}
+.lab-ctrl{padding:22px;border-right:1.5px solid var(--ink);display:flex;flex-direction:column;gap:18px}
+.lab-ctrl h3{font-size:2rem;font-weight:900;text-transform:uppercase}
+.lab-ctrl p{font-size:.88rem;color:var(--ink-soft);line-height:1.5}
+.field{display:flex;flex-direction:column;gap:6px}
+.field label{display:flex;justify-content:space-between;font-family:var(--f-mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft)}
+.field label output{color:var(--ink);font-weight:500}
+input[type=range]{width:100%;accent-color:var(--accent)}
+.motors{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.motors button{font-family:var(--f-mono);font-size:.8rem;padding:9px 0;border:1.5px solid var(--rule);background:var(--paper);color:var(--ink);cursor:pointer;border-radius:2px}
+.motors button[aria-pressed=true]{border-color:var(--accent);background:var(--accent);color:var(--accent-ink)}
+.lab-out{display:flex;flex-direction:column;min-width:0}
+.lab-out canvas{width:100%;height:380px;display:block;border-bottom:1.5px solid var(--ink);background:var(--paper);cursor:crosshair}
+.readouts{display:grid;grid-template-columns:repeat(5,minmax(0,1fr))}
+.readouts div{padding:14px 16px;border-right:1px solid var(--rule);min-width:0}
+.readouts div:last-child{border-right:0}
+.readouts b{display:block;font-family:var(--f-display);font-size:2rem;font-weight:800;line-height:1;font-variant-numeric:tabular-nums;margin-top:4px}
+.readouts small{font-family:var(--f-mono);font-size:.7rem;color:var(--ink-soft)}
+.verdict{padding:12px 16px;border-top:1px solid var(--rule);font-size:.9rem;display:flex;gap:10px;align-items:flex-start}
+.verdict .dot{flex:none;width:10px;height:10px;border-radius:50%;margin-top:6px;background:#2F9E44}
+.verdict.warn .dot{background:#E8A400}
+.verdict.bad .dot{background:#E03131}
+details.code{border-top:1.5px solid var(--ink)}
+details.code summary{cursor:pointer;padding:12px 16px;font-family:var(--f-mono);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase}
+details.code pre{margin:0;padding:16px;overflow-x:auto;font:400 .8rem/1.6 var(--f-mono);background:var(--paper);border-top:1px solid var(--rule)}
+.kw{color:var(--accent)}.cm{color:var(--ink-soft);font-style:italic}
+
+.toolbox{margin-top:clamp(48px,6vw,80px);display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(24px,4vw,48px);align-items:start}
+.toolbox h3{font-size:clamp(2rem,4vw,3rem);font-weight:900;text-transform:uppercase}
+.langs{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
+.lang{border:1.5px solid var(--ink);background:var(--surface);padding:14px 12px 12px;display:flex;flex-direction:column;gap:18px;transition:transform .15s,box-shadow .15s}
+.lang:hover{transform:translate(-3px,-3px);box-shadow:5px 5px 0 var(--accent)}
+.lang code{font-family:var(--f-mono);font-size:.72rem;color:var(--ink-soft)}
+.lang b{font-family:var(--f-display);font-size:clamp(1.15rem,1.7vw,1.5rem);overflow-wrap:anywhere;font-weight:800;text-transform:uppercase;line-height:1}
+.goal{margin-top:18px;padding:16px 18px;border-left:3px solid var(--accent);background:var(--accent-soft);font-size:.95rem}
+
+/* ---------- MUN ---------- */
+.timeline{display:grid;gap:clamp(40px,6vw,72px)}
+.tl{display:grid;grid-template-columns:200px minmax(0,1fr);gap:clamp(20px,4vw,48px)}
+.tl-when{border-top:3px solid var(--ink);padding-top:12px}
+.tl-when b{display:block;font-family:var(--f-display);font-size:2.4rem;font-weight:900;line-height:1}
+.tl-body h3{font-size:clamp(2rem,4.5vw,3.3rem);font-weight:900;text-transform:uppercase}
+.tl-body h3 span{color:var(--accent)}
+.tl-body>p{max-width:46em;margin-top:12px}
+.gallery{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-top:22px}
+.gallery button{padding:0;border:0;background:var(--shade);cursor:zoom-in;overflow:hidden;position:relative}
+.gallery img{width:100%;height:100%;aspect-ratio:1;object-fit:cover;transition:transform .4s}
+.gallery button:hover img{transform:scale(1.05)}
+.gallery .wide{grid-column:span 2}
+.gallery .wide img{aspect-ratio:2/1}
+.gallery .tall{grid-row:span 2}
+.gallery .tall img{aspect-ratio:1/2}
+
+/* ---------- travel ---------- */
+.mapbox{border:1.5px solid var(--ink);background:var(--surface);margin-bottom:clamp(32px,5vw,56px)}
+.mapbox canvas{width:100%;height:360px;display:block}
+.mapbox .cap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:10px 14px;border-top:1px solid var(--rule)}
+.maplegend{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);border-top:1px solid var(--rule)}
+.maplegend>div{padding:12px 14px;min-width:0}
+.maplegend>div+div{border-left:1px solid var(--rule)}
+.maplegend ol{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:2px}
+.maplegend button{all:unset;box-sizing:border-box;width:100%;display:grid;grid-template-columns:24px minmax(0,1fr) auto;gap:10px;align-items:center;padding:5px 6px;border-radius:4px;cursor:pointer;font-size:.92rem}
+.maplegend button:hover,.maplegend button.on{background:var(--accent-soft)}
+.maplegend button:focus-visible{outline:2px solid var(--accent)}
+.maplegend b{display:grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--ink);color:var(--surface);font:700 .7rem var(--f-mono)}
+.maplegend button.on b{background:var(--accent)}
+.maplegend span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.maplegend span small{font-size:.8em;color:var(--ink-soft)}
+.maplegend em{font:500 .75rem var(--f-mono);font-style:normal;color:var(--ink-soft);font-variant-numeric:tabular-nums}
+.trips{display:grid;gap:clamp(36px,5vw,64px)}
+.trip{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(20px,4vw,48px);align-items:start;scroll-margin-top:80px}
+.trip:nth-child(even) .trip-cover{order:2}
+.trip-cover{padding:0;border:1.5px solid var(--ink);background:var(--surface);cursor:zoom-in;padding:6px;position:relative}
+.trip-cover img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.trip-cover .n{position:absolute;top:14px;left:14px;background:var(--paper);color:var(--ink);font-family:var(--f-mono);font-size:.7rem;padding:4px 8px;border:1px solid var(--ink)}
+.trip h3{font-size:clamp(2.2rem,5vw,3.6rem);font-weight:900;text-transform:uppercase}
+.trip .where{display:flex;flex-wrap:wrap;gap:6px 16px;margin:8px 0 16px}
+.note{border:1px solid var(--rule);background:var(--surface);padding:14px 16px;font-size:.95rem}
+.note .label{display:flex;gap:8px;align-items:center;margin-bottom:6px;color:var(--accent)}
+.note .label svg{width:14px;height:14px}
+.memory{margin-top:14px;font-size:1rem}
+.memory.empty{font-family:var(--f-mono);font-size:.76rem;color:var(--ink-soft);border:1px dashed var(--rule);padding:10px 14px}
+.strip{display:flex;gap:6px;margin-top:16px;overflow-x:auto;padding-bottom:6px;scrollbar-width:thin}
+.strip button{flex:none;width:76px;height:76px;padding:0;border:1px solid var(--rule);cursor:zoom-in;background:var(--shade)}
+.strip img{width:100%;height:100%;object-fit:cover}
+
+.horizon{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border:1.5px solid var(--ink);background:var(--surface)}
+.hz{padding:22px;border-right:1px solid var(--rule);min-width:0;position:relative}
+.hz:last-child{border-right:0}
+.hz h3{font-size:clamp(1.7rem,3vw,2.3rem);font-weight:900;text-transform:uppercase;margin:6px 0 10px}
+.hz p{font-size:.94rem;color:var(--ink-soft)}
+.hz.now{background:var(--accent-soft)}
+.hz.now .label{color:var(--accent)}
+.hz:not(:last-child)::after{content:"→";position:absolute;right:-11px;top:24px;width:20px;height:20px;display:grid;place-items:center;background:var(--paper);border:1px solid var(--rule);border-radius:50%;font-size:.75rem;color:var(--ink-soft);z-index:1}
+.queue{margin-top:22px}
+.queue ul{list-style:none;margin:10px 0 0;padding:0;display:grid;gap:8px}
+.queue li{display:grid;grid-template-columns:110px minmax(0,220px) minmax(0,1fr);gap:14px;align-items:baseline;padding:10px 0;border-bottom:1px dashed var(--rule)}
+.queue li b{font-weight:600}
+.queue li span:last-child{color:var(--ink-soft);font-size:.92rem}
+.st{font-family:var(--f-mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--rule);border-radius:999px;padding:3px 8px;justify-self:start;color:var(--ink-soft)}
+.st-in-progress{border-color:var(--accent);color:var(--accent)}
+.st-done{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.projects{margin-top:clamp(48px,6vw,80px);display:grid;gap:20px}
+.proj-head h3{font-size:clamp(2rem,4vw,3rem);font-weight:900;text-transform:uppercase;margin-top:4px}
+.proj-head p{color:var(--ink-soft);max-width:44em;margin-top:10px}
+#projList{display:grid;gap:20px}
+.proj{border:1.5px solid var(--ink);background:var(--surface);display:grid;grid-template-columns:minmax(0,1fr);min-width:0}
+.proj.feat{grid-template-columns:minmax(0,1.05fr) minmax(0,1fr)}
+.proj-media{display:grid;gap:1px;background:var(--rule);align-content:start}
+.proj-media button{padding:0;border:0;background:#0f0f19;cursor:zoom-in;display:block;overflow:hidden}
+.proj-media img{width:100%;aspect-ratio:16/10;object-fit:cover;display:block;transition:transform .4s}
+.proj-media button+button img{aspect-ratio:auto;object-fit:contain;background:#fff;max-height:260px}
+.proj-media button:hover img{transform:scale(1.02)}
+.proj.feat .proj-media{border-right:1.5px solid var(--ink)}
+.proj:not(.feat) .proj-media{border-bottom:1.5px solid var(--ink)}
+.proj-body{padding:20px 22px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.proj-body h4{font-family:var(--f-display);font-size:clamp(1.7rem,3vw,2.4rem);font-weight:900;text-transform:uppercase;line-height:.95;margin:0}
+.proj-body p{font-size:.95rem}
+.proj-body ul{margin:0;padding-left:18px;font-size:.9rem;color:var(--ink-soft);display:grid;gap:4px}
+.proj-body li::marker{color:var(--accent)}
+.proj-stack{display:flex;flex-wrap:wrap;gap:6px}
+.proj-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto;padding-top:6px}
+.proj-links .btn{padding:10px 14px;font-size:.72rem}
+.proj-links svg{flex:none}
+.proj-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+/* ---------- blog ---------- */
+.blog-filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
+.blog-filters button{font-family:var(--f-mono);font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;padding:8px 14px;border:1.5px solid var(--rule);background:var(--surface);color:var(--ink);border-radius:999px;cursor:pointer}
+.blog-filters button[aria-pressed=true]{border-color:var(--ink);background:var(--ink);color:var(--paper)}
+.posts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.post{border:1.5px solid var(--ink);background:var(--surface);padding:20px;display:flex;flex-direction:column;gap:10px;cursor:pointer;text-align:left;color:var(--ink);font:inherit;transition:transform .15s,box-shadow .15s}
+.post:hover{transform:translate(-3px,-3px);box-shadow:5px 5px 0 var(--accent)}
+.post h3{font-size:1.8rem;font-weight:800;text-transform:uppercase}
+.post p{font-size:.92rem;color:var(--ink-soft)}
+.post .more{margin-top:auto;font-family:var(--f-mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.empty-blog{border:1.5px dashed var(--ink-soft);padding:clamp(28px,5vw,56px);display:grid;grid-template-columns:auto minmax(0,1fr);gap:28px;align-items:center;background:var(--surface)}
+.empty-blog svg{width:110px;height:110px;color:var(--ink-soft)}
+.empty-blog h3{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:900;text-transform:uppercase}
+.empty-blog p{color:var(--ink-soft);margin-top:8px;max-width:40em}
+.empty-blog .soon{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+
+/* reader + lightbox */
+dialog{border:1.5px solid var(--ink);background:var(--surface);color:var(--ink);padding:0;max-width:min(760px,calc(100vw - 32px));width:100%;max-height:calc(100vh - 48px)}
+dialog::backdrop{background:rgba(8,18,32,.72);backdrop-filter:blur(3px)}
+.reader-body{padding:clamp(22px,4vw,44px);overflow:auto}
+.reader-body h2{font-size:clamp(2.2rem,6vw,3.6rem);font-weight:900;text-transform:uppercase;margin:8px 0 20px}
+.reader-body p+p{margin-top:1em}
+.close{position:absolute;top:10px;right:10px;width:38px;height:38px;padding:0;display:grid;place-items:center;line-height:1;border-radius:50%;border:1px solid var(--rule);background:var(--paper);color:var(--ink);cursor:pointer;font-size:1.1rem;z-index:2}
+#lb{max-width:calc(100vw - 32px);width:auto;background:transparent;border:0;overflow:visible}
+#lb figure{margin:0;display:flex;flex-direction:column;align-items:center;gap:10px}
+#lb img{max-width:calc(100vw - 32px);max-height:calc(100vh - 120px);object-fit:contain;border:6px solid var(--surface)}
+#lb figcaption{color:#fff;font-family:var(--f-mono);font-size:.78rem;text-align:center;max-width:60ch}
+#lb .nav-b{position:fixed;top:50%;transform:translateY(-50%);width:46px;height:46px;padding:0;margin:0;border-radius:50%;border:0;background:rgba(255,255,255,.92);color:#14213A;cursor:pointer;display:grid;place-items:center;line-height:0}
+#lb .nav-b svg{display:block}
+#lb .lb-prev{left:12px}#lb .lb-next{right:12px}
+#lb .close{position:fixed;top:14px;right:14px;background:rgba(255,255,255,.92);color:#14213A;border:0}
+
+/* footer */
+footer{border-top:1.5px solid var(--ink);padding-block:40px 56px;margin-top:40px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:20px 40px;justify-content:space-between;align-items:end}
+footer .sig{font-family:var(--f-display);font-size:clamp(2.4rem,7vw,4.4rem);font-weight:900;text-transform:uppercase;line-height:.9}
+footer .contacts{display:flex;flex-direction:column;gap:6px}
+.copy-row{display:flex;gap:8px;align-items:center}
+.copy-row button{font-family:var(--f-mono);font-size:.7rem;border:1px solid var(--rule);background:var(--surface);color:var(--ink);padding:4px 8px;cursor:pointer}
+
+/* responsive */
+@media (max-width:960px){
+  .hero-grid,.project,.about,.toolbox{grid-template-columns:minmax(0,1fr)}
+  .fig{max-width:440px}
+  .titleblock{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .titleblock div:nth-child(3){border-right:0}
+  .titleblock div:nth-child(-n+3){border-bottom:1px solid var(--rule)}
+  .lab{grid-template-columns:minmax(0,1fr)}
+  .lab-ctrl{border-right:0;border-bottom:1.5px solid var(--ink)}
+  .readouts{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .readouts div:nth-child(-n+3){border-bottom:1px solid var(--rule)}
+  .posts{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .tl{grid-template-columns:minmax(0,1fr)}
+  .proj.feat{grid-template-columns:minmax(0,1fr)}
+  .proj.feat .proj-media{border-right:0;border-bottom:1.5px solid var(--ink)}
+  .proj-grid{grid-template-columns:minmax(0,1fr)}
+  .horizon{grid-template-columns:minmax(0,1fr)}
+  .hz{border-right:0;border-bottom:1px solid var(--rule)}
+  .hz:last-child{border-bottom:0}
+  .hz:not(:last-child)::after{content:"↓";right:22px;top:auto;bottom:-11px}
+  .queue li{grid-template-columns:minmax(0,1fr);gap:4px}
+  .trip{grid-template-columns:minmax(0,1fr)}
+  .trip:nth-child(even) .trip-cover{order:0}
+}
+@media (max-width:600px){
+  .mark span{display:none}
+  .titleblock{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .titleblock div{border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+  .titleblock div:nth-child(2n){border-right:0}
+  .traits{grid-template-columns:minmax(0,1fr)}
+  .langs{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .readouts{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .readouts div{border-bottom:1px solid var(--rule)}
+  .gallery{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .posts{grid-template-columns:minmax(0,1fr)}
+  .empty-blog{grid-template-columns:minmax(0,1fr)}
+  .spec div{grid-template-columns:110px minmax(0,1fr)}
+  .lab-out canvas{height:300px}
+  .sec-head{grid-template-columns:minmax(0,1fr)}
+  .maplegend{grid-template-columns:minmax(0,1fr)}
+  .maplegend>div+div{border-left:0;border-top:1px solid var(--rule)}
+  .sec-head .sheet{grid-row:auto;flex-direction:row;gap:10px;align-items:center;justify-self:start}
+  .sec-head .sheet b{font-size:1.4rem}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{animation:none!important;transition:none!important}
+}
+</style>
+
+</head>
+<body>
+<canvas id="bg" aria-hidden="true"></canvas>
+
+<div class="page">
+<header class="nav">
+  <div class="wrap">
+    <a class="mark" href="#top"><i>ÖBÇ</i><span>Ömer Burhan Çınar</span></a>
+    <nav class="links" aria-label="Sections">
+      <a href="#about">About</a>
+      <a href="#engineering">Engineering</a>
+      <a href="#projects">Projects</a>
+      <a href="#leadership">Leadership</a>
+      <a href="#travel">Travel</a>
+      <a href="#next">What's next</a>
+      <a href="#blog">Blog</a>
+    </nav>
+    <button class="theme" id="themeBtn" aria-label="Switch light or dark theme">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow label"><span>Future mechanical engineer</span><span>Gaziantep, Türkiye</span></div>
+        <h1><span class="l1">Ömer Burhan</span><span class="l2">Çınar<b>.</b></span></h1>
+        <p class="lede">I'm a senior at TOBB Science High School in Gaziantep. I <em>launch rockets</em>, lead debate as a committee chair, write code in five languages, and travel to see how people built things that are still standing two thousand years later.</p>
+        <div class="cta">
+          <a class="btn solid" href="#engineering">See my engineering work →</a>
+          <a class="btn" href="#about">Get to know me</a>
+        </div>
+      </div>
+      <figure class="fig">
+        <div class="dim top"><span>W 1:1</span></div>
+        <div class="dim side"><span>H 17 YRS</span></div>
+        <div class="frame"><img src="img/izm-06.jpg?v=20261009" alt="Ömer standing in front of the Library of Celsus in Ephesus"></div>
+        <span class="tag">Applying · Fall 2027</span>
+        <figcaption class="mono"><span>FIG. 1 — Library of Celsus, Ephesus</span><span>37.94°N 27.34°E</span></figcaption>
+      </figure>
+    </div>
+
+    <dl class="titleblock">
+      <div><dt>Name</dt><dd>Ömer Burhan Çınar</dd></div>
+      <div><dt>Age</dt><dd>17</dd></div>
+      <div><dt>School</dt><dd>TOBB Science High School, Şahinbey</dd></div>
+      <div><dt>Graduating</dt><dd>June 2027</dd></div>
+      <div><dt>Intended major</dt><dd>Mechanical Engineering</dd></div>
+      <div><dt>Code</dt><dd>Python · Java · JS · HTML · CSS</dd></div>
+    </dl>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section class="sec" id="about">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sheet">Sheet<b>01</b>of 06</div>
+      <h2>About me</h2>
+      <p>The short version: I like understanding how things work, and then making them work better.</p>
+    </div>
+    <div class="about">
+      <p class="big">I think in <span>forces</span>, <span>systems</span> and <span>people</span>. Mechanical engineering is where all three meet.</p>
+      <div>
+        <p>I grew up in Gaziantep, a city of workshops and factories in southeastern Türkiye, and I study at TOBB Science High School, a science-focused public school. Physics and mathematics are the core of my day. Outside class I build and fly model rockets, write software, and spend a lot of time in Model United Nations, where I went from representing China as a delegate to chairing the World Health Organization committee.</p>
+        <p>When I travel, I end up staring at the structure of a place: how a 17th-century palace in Amsterdam stands on wooden piles, how a Roman library façade carries its load, how the Atomium holds nine steel spheres in the air. This site collects those projects, notes and memories in one place.</p>
+      </div>
+    </div>
+    <div class="traits">
+      <div class="trait"><h3>Builder</h3><p>Model rocketry, and writing code to test ideas before building them.</p></div>
+      <div class="trait"><h3>Leader</h3><p>Committee chair at my school's conference, and a trainer for younger students taking on their first leadership roles.</p></div>
+      <div class="trait"><h3>Explorer</h3><p>Belgium, the Netherlands and across Türkiye, with an eye for the engineering behind each place.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ENGINEERING ================= -->
+<section class="sec" id="engineering">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sheet">Sheet<b>02</b>of 06</div>
+      <h2>Engineering</h2>
+      <p>Rocketry, simulation and software: what I have built, how it works, and what each project taught me.</p>
+    </div>
+
+    <article class="project">
+      <div class="media-stack">
+        <video src="img/launch.mp4?v=20261009" poster="img/launch-poster.jpg?v=20261009" controls muted playsinline preload="metadata" aria-label="Video of the model rocket launch and parachute descent"></video>
+        <button data-lb="eng" data-i="0"><img src="img/eng-01.jpg?v=20261009" alt="Preparing the rocket on the launch pad" loading="lazy"></button>
+        <button data-lb="eng" data-i="1"><img src="img/eng-02.jpg?v=20261009" alt="The rocket on its launch rod, ready to fly" loading="lazy"></button>
+      </div>
+      <div>
+        <span class="label">Project 01 · Rocketry</span>
+        <h3>Model rocket launch</h3>
+        <div class="meta"><span class="chip hot">Flown · Sept 2024</span><span class="chip">Solid motor</span><span class="chip">Parachute recovery</span></div>
+        <p>A single-stage model rocket, launched from a rod pad on open ground outside the city. The video shows the full flight: ignition, the boost phase, coast to apogee, ejection, and the parachute bringing the rocket back down in one piece.</p>
+        <p>Getting a rocket to come back safely is the real engineering problem. The ejection charge has to fire close to apogee. Too early and the parachute opens at high speed and can tear; too late and the rocket is already falling fast. The Launch Lab below lets you explore exactly that trade-off.</p>
+        <dl class="spec">
+          <div><dt>Configuration</dt><dd>Single stage, fin-stabilised</dd></div>
+          <div><dt>Propulsion</dt><dd>Commercial solid-propellant model motor</dd></div>
+          <div><dt>Launch</dt><dd>Rod-guided, field-built pad stabilised with stones</dd></div>
+          <div><dt>Recovery</dt><dd>Parachute, deployed by motor ejection charge</dd></div>
+          <div><dt>Result</dt><dd>Successful flight and recovery</dd></div>
+        </dl>
+      </div>
+    </article>
+
+    <!-- Launch Lab -->
+    <div class="lab" id="lab">
+      <div class="lab-ctrl">
+        <div>
+          <span class="label">Project 02 · Simulation</span>
+          <h3>Launch Lab</h3>
+          <p>A simplified 2D flight simulator for model rockets. Pick a motor, change the design, and see where it goes. Click the plot to launch again.</p>
+        </div>
+        <div class="field">
+          <label>Motor</label>
+          <div class="motors" role="group" aria-label="Motor">
+            <button data-m="A" aria-pressed="false">A8-3</button>
+            <button data-m="B" aria-pressed="true">B6-4</button>
+            <button data-m="C" aria-pressed="false">C6-5</button>
+          </div>
+        </div>
+        <div class="field"><label for="mass">Rocket mass (no motor) <output id="massO">45 g</output></label><input id="mass" type="range" min="20" max="90" value="45"></div>
+        <div class="field"><label for="delay">Ejection delay <output id="delayO">4.0 s</output></label><input id="delay" type="range" min="1" max="8" step="0.5" value="4"></div>
+        <div class="field"><label for="angle">Launch angle <output id="angleO">5°</output></label><input id="angle" type="range" min="0" max="25" value="5"></div>
+        <div class="field"><label for="wind">Wind <output id="windO">3 m/s</output></label><input id="wind" type="range" min="0" max="10" value="3"></div>
+        <button class="btn solid" id="launch" style="justify-content:center">Launch ↑</button>
+      </div>
+      <div class="lab-out">
+        <canvas id="sim" aria-label="Rocket trajectory plot"></canvas>
+        <div class="readouts">
+          <div><span class="label">Apogee</span><b id="rApo">–</b><small>metres</small></div>
+          <div><span class="label">Max speed</span><b id="rV">–</b><small id="rVk">m/s</small></div>
+          <div><span class="label">Speed at ejection</span><b id="rEj">–</b><small>m/s</small></div>
+          <div><span class="label">Flight time</span><b id="rT">–</b><small>seconds</small></div>
+          <div><span class="label">Drift</span><b id="rD">–</b><small>metres downwind</small></div>
+        </div>
+        <div class="verdict" id="verdict"><span class="dot"></span><span id="verdictT">Ready for launch.</span></div>
+        <details class="code">
+          <summary>Show the physics (integration step)</summary>
+<pre><span class="cm">// Forces each 2 ms: thrust along the rod/velocity, quadratic drag, gravity.</span>
+<span class="kw">const</span> vRelX = vx - wind, vRelY = vy;           <span class="cm">// air-relative velocity</span>
+<span class="kw">const</span> v = Math.hypot(vRelX, vRelY);
+<span class="kw">const</span> CdA = chuteOpen ? Cd_body*A_body + Cd_chute*A_chute : Cd_body*A_body;
+<span class="kw">const</span> D = 0.5 * rho * CdA * v * v;               <span class="cm">// drag force, N</span>
+<span class="kw">const</span> T = t &lt; burnTime ? impulse / burnTime : 0; <span class="cm">// average thrust, N</span>
+<span class="kw">const</span> m = dryMass + motorCase + propellant * (1 - t / burnTime);
+ax = (T * dirX - D * vRelX / v) / m;
+ay = (T * dirY - D * vRelY / v) / m - 9.81;
+vx += ax * dt;  vy += ay * dt;  x += vx * dt;  y += vy * dt;</pre>
+        </details>
+      </div>
+    </div>
+
+    <div class="projects" id="projects">
+      <div class="proj-head">
+        <span class="label">Software projects</span>
+        <h3>Code that models real things</h3>
+        <p>Simulators, a machine-learning inspection tool and games. Each one has its full code, documentation and results on GitHub.</p>
+      </div>
+      <div id="projList"></div>
+    </div>
+
+    <div class="toolbox">
+      <div>
+        <span class="label">Toolbox</span>
+        <h3>Languages I write</h3>
+        <p style="margin-top:12px;color:var(--ink-soft)">I use code the way engineers use a sketchbook: to model an idea quickly, check the numbers, and show it to someone else.</p>
+      </div>
+      <div>
+        <div class="langs">
+          <div class="lang"><code>.py</code><b>Python</b></div>
+          <div class="lang"><code>.java</code><b>Java</b></div>
+          <div class="lang"><code>.js</code><b>JavaScript</b></div>
+          <div class="lang"><code>.html</code><b>HTML</b></div>
+          <div class="lang"><code>.css</code><b>CSS</b></div>
+        </div>
+        <p class="goal"><strong>Where this is going:</strong> combining mechanical design with software, from simulation and control to the machines themselves. I want to study mechanical engineering in the United States and work where machines meet intelligence: AI, robotics and assistive technology.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= MUN ================= -->
+<section class="sec" id="leadership">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sheet">Sheet<b>03</b>of 06</div>
+      <h2>Leadership</h2>
+      <p>Most of my leadership so far has happened at Model United Nations, where I went from defending one country's position to running a committee and training the students who will run it next.</p>
+    </div>
+    <div class="timeline">
+      <article class="tl">
+        <div class="tl-when"><span class="label">Season</span><b>2024–25</b></div>
+        <div class="tl-body">
+          <span class="label">TOBBMUN'25 · Delegate</span>
+          <h3>Delegate of the <span>People's Republic of China</span></h3>
+          <p>My first conference. Representing China meant arguing positions I had to research deeply and defend under pressure, building coalitions with other delegations, and drafting clauses that could survive a vote. It taught me to prepare thoroughly and to listen before I speak.</p>
+          <div class="meta" style="display:flex;flex-wrap:wrap;gap:8px;margin-top:16px"><span class="chip hot">Delegate</span><span class="chip">Research</span><span class="chip">Negotiation</span><span class="chip">Resolution drafting</span></div>
+          <div class="gallery" id="g-mun1"></div>
+        </div>
+      </article>
+      <article class="tl">
+        <div class="tl-when"><span class="label">Season</span><b>2025–26</b></div>
+        <div class="tl-body">
+          <span class="label">TOBBMUN'26 · Committee chair & trainer</span>
+          <h3>Chair, <span>World Health Organization</span></h3>
+          <p>I chaired the WHO committee: setting the agenda, running procedure, keeping debate moving and fair, and guiding delegates toward a resolution. I also trained younger students who were preparing to serve as chairs and co-chairs, passing on what I learned about procedure, preparation and public speaking.</p>
+          <div class="meta" style="display:flex;flex-wrap:wrap;gap:8px;margin-top:16px"><span class="chip hot">Chair</span><span class="chip">Mentor to junior chairs</span><span class="chip">Public speaking</span><span class="chip">Parliamentary procedure</span></div>
+          <div class="gallery" id="g-mun2"></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TRAVEL ================= -->
+<section class="sec" id="travel">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sheet">Sheet<b>04</b>of 06</div>
+      <h2>Travel log</h2>
+      <p>Places I've been, what I noticed as a future engineer, and what I remember. Each number matches a trip below; click one to jump to it.</p>
+    </div>
+    <div class="mapbox">
+      <canvas id="map" aria-label="Map of places visited, measured from Gaziantep"></canvas>
+      <div class="maplegend" id="mapLegend"></div>
+    </div>
+    <div class="trips" id="trips"></div>
+  </div>
+</section>
+
+<!-- ================= WHAT'S NEXT ================= -->
+<section class="sec" id="next">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sheet">Sheet<b>05</b>of 06</div>
+      <h2>What's next</h2>
+      <p>Everything above is a starting point. This is where I'm heading, and this page will keep growing as I get there.</p>
+    </div>
+    <div class="horizon">
+      <article class="hz now"><span class="label">Now · 2026–27</span><h3>Senior year</h3><p>Finishing at TOBB Science High School and graduating in June 2027. Building on my rocketry work, staying active in debate and mentoring, and writing about what I learn on the blog below.</p></article>
+      <article class="hz"><span class="label">Next · from Fall 2027</span><h3>Mechanical engineering</h3><p>Studying mechanical engineering at a university in the United States, with the physics, design and hands-on lab work to go further than I can on my own.</p></article>
+      <article class="hz"><span class="label">Later</span><h3>Machines that help people</h3><p>Building where mechanical design meets software and AI: robotics, intelligent machines, and assistive technology that makes everyday life easier for people who need it.</p></article>
+    </div>
+    <div class="queue">
+      <span class="label">On the drawing board</span>
+      <ul id="nextList"></ul>
+    </div>
+  </div>
+</section>
+
+<!-- ================= BLOG ================= -->
+<section class="sec" id="blog">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sheet">Sheet<b>06</b>of 06</div>
+      <h2>Blog</h2>
+      <p>Essays, engineering notes and memories, written by me.</p>
+    </div>
+    <div class="blog-filters" id="blogFilters"></div>
+    <div id="posts"></div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div class="sig">Ömer Burhan Çınar</div>
+      <p class="mono" style="margin-top:10px;color:var(--ink-soft)">TOBB Science High School · Gaziantep, Türkiye · Class of 2027</p>
+    </div>
+    <div class="contacts" id="contacts"></div>
+  </div>
+</footer>
+</div>
+
+<dialog id="reader"><button class="close" data-close aria-label="Close">✕</button><div class="reader-body" id="readerBody"></div></dialog>
+<dialog id="lb"><button class="close" data-close aria-label="Close">✕</button><button class="nav-b lb-prev" aria-label="Previous photo"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button><figure><img id="lbImg" alt=""><figcaption id="lbCap"></figcaption></figure><button class="nav-b lb-next" aria-label="Next photo"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></button></dialog>
+
+<script>
+/* =====================================================================
+   EDIT HERE — everything you will want to change lives in these objects
+   ===================================================================== */
+
+// Contact links. Fill any you want to show; empty ones stay hidden.
+const CONTACT = {
+  email: "",      // e.g. "omer@example.com"
+  github: "https://github.com/Warriorlie123",
+  linkedin: "",   // e.g. "https://linkedin.com/in/..."
+  instagram: ""
+};
+
+// BLOG POSTS — add a new object to publish a post.
+// category: "Engineering" | "Memories" | "Leadership" | "Thoughts"
+// body: paragraphs separated by a blank line.
+const BLOG_POSTS = [
+  // {
+  //   title: "Why I want to be a mechanical engineer",
+  //   date: "2026-10-10",
+  //   category: "Thoughts",
+  //   summary: "One or two sentences that appear on the card.",
+  //   body: `First paragraph...
+
+  // Second paragraph...`
+  // },
+];
+
+// WHAT'S NEXT — upcoming projects and goals. Edit freely; status: "planned" | "in progress" | "done"
+// SOFTWARE PROJECTS — repo = folder name on GitHub; demo = page that runs in the browser (optional)
+const GITHUB_USER = "Warriorlie123";
+const PROJECTS = [
+  { repo: "uav-flight-sim", featured: true, title: "UAV Flight Simulator", kicker: "Physics simulation · control",
+    summary: "A 2D quadrotor simulator built on real physics, with a flight controller I tuned myself and a game on top. It started as a pygame game where every number just felt right. I rebuilt it in real units so it could answer real questions.",
+    points: ["1.2 kg drone with rotor thrust, motor spin-up lag, battery voltage sag and wind", "Four flight modes, from position hold to full autopilot, across three levels", "Finding: 0.6 kg of cargo cuts hover time from 13.0 to 7.2 minutes and leaves little spare thrust"],
+    stack: ["Python", "pygame", "pytest", "JavaScript"], img: "proj-uav", img2: "proj-uav-chart", demo: true },
+  { repo: "surface-detect-ai", featured: true, title: "Steel Surface Defect Inspection", kicker: "Machine learning · quality control",
+    summary: "A YOLOv8 detector for defects on hot-rolled steel, wrapped in an inspection tool that measures each defect in millimetres and turns detections into a PASS / REVIEW / REJECT decision.",
+    points: ["Trained on NEU-DET: 1,800 images across six defect classes; mAP50 of 0.736", "A model 3.7× larger did not do better; the confusion matrix showed the limit was inconsistent labels, not model size", "Tiled inference for full-size frames; ONNX export halves CPU latency to 52 ms"],
+    stack: ["Python", "YOLOv8", "Streamlit", "ONNX", "pytest"], img: "proj-steel", img2: "proj-steel-tiling" },
+  { repo: "brickvault", title: "BrickVault", kicker: "Probability · markets",
+    summary: "A browser game about collecting minifigures that is really a simulation of probability, markets and patience, with short essays explaining the math.",
+    points: ["996 figures in 66 crates, with weighted drops and a regime-switching market", "A 20,000-run Monte Carlo shows a 17% house edge on every crate"],
+    stack: ["JavaScript", "HTML", "CSS", "Node.js"], img: "proj-brick", demo: true },
+  { repo: "Dungeon_Crawler", title: "Dungeon Crawler", kicker: "Game development",
+    summary: "A top-down dungeon crawler with 10 heroes, 20 levels, 8 bosses and 22 monster types, plus a shop and weapon forge between levels.",
+    points: ["All 54 sound effects and 6 music tracks generated from code", "A headless test bot plays through all 20 levels with every hero"],
+    stack: ["Python", "pygame"], img: "proj-dungeon" },
+  { repo: "F1-Race-Road-Game", title: "F1 Race Road", kicker: "Game development",
+    summary: "A top-down endless racer where you drive the throttle and brake, and the car's speed comes from a real force balance: engine power, tyre grip and aerodynamic drag.",
+    points: ["F1-like numbers (798 kg, 740 kW): 0–100 km/h in 2.6 s and a top speed of about 356 km/h", "DRS lowers drag to raise top speed; grass cuts grip so the car slows even at full throttle"],
+    stack: ["Python", "pygame"], img: "proj-f1" },
+];
+
+const NEXT_UP = [
+  { title: "Projects on GitHub", detail: "Publish every project with its code, documentation and results.", status: "in progress" },
+  { title: "Second rocket launch", detail: "Fly again and compare the real flight with the Launch Lab simulation.", status: "planned" },
+  { title: "More travel stories", detail: "Write up the memories behind each trip in the Travel log.", status: "in progress" },
+  { title: "First blog posts", detail: "Engineering notes, leadership reflections and memories.", status: "in progress" },
+];
+
+// TRAVEL — add your own story in `memory` for each trip.
+const TRIPS = [
+  { id:"brussels", place:"Brussels", country:"Belgium", lat:50.85, lon:4.35,
+    note:"The Atomium was built for Expo 58. It is a model of an iron crystal's unit cell, magnified 165 billion times: nine steel spheres held 102 metres up by tubes that also carry escalators. Nearby, the Cinquantenaire arch was completed in 1905 for the 75th anniversary of Belgian independence. And the city's smallest celebrity, the Manneken Pis statue, owns a wardrobe of more than 1,000 costumes.",
+    memory:"",
+    photos:[["bel-10","The Atomium"],["bel-04","Cinquantenaire arch"],["bel-14","Quadriga on top of the Cinquantenaire arch"],["bel-11","The Everard 't Serclaes memorial near the Grand-Place, rubbed for good luck"],["bel-05","With Manneken Pis, Brussels' famous fountain statue"],["bel-12","Manneken Pis wearing one of his costumes"],["bel-13","Church interior"],["bel-21","Painting in a Brussels church"],["bel-07","A First World War tank in the military history museum"],["bel-17","Model of a ship of the line"],["bel-18","Polar expedition ship model"],["bel-19","Naval vessel model"],["bel-15","Museum exhibit"],["bel-16","Museum exhibit"]] },
+  { id:"bruges", place:"Bruges", country:"Belgium", lat:51.21, lon:3.22,
+    note:"The Belfry of Bruges rises 83 metres over the Markt, with 366 steps to the top and a carillon of 47 bells. The canals that once carried trade through the city are now crossed by boat, which is how I saw most of it.",
+    memory:"",
+    photos:[["bel-03","The Belfry of Bruges"],["bel-22","The Markt and the Belfry"],["bel-02","On a canal boat in Bruges"],["bel-08","Canal with the Church of Our Lady behind"],["bel-06","View over the rooftops"],["bel-09","Flea market along the canal"]] },
+  { id:"leuven", place:"Leuven", country:"Belgium", lat:50.88, lon:4.70,
+    note:"KU Leuven's University Library was destroyed in 1914 and rebuilt in the 1920s, largely funded by donations from the United States. In the square in front stands Jan Fabre's Totem: a giant beetle pierced by a 23-metre needle.",
+    memory:"",
+    photos:[["bel-26","KU Leuven University Library on Ladeuzeplein"],["bel-20","Totem, Jan Fabre's beetle on a needle"]] },
+  { id:"coast", place:"Belgian coast", country:"Belgium", lat:51.23, lon:2.92,
+    note:"The North Sea coast is wide, flat sand with big tidal ranges. Even the beach has a library box (Strandbib).",
+    memory:"",
+    photos:[["bel-01","On the Belgian beach"],["bel-24","A beach library on the sand"]] },
+  { id:"amsterdam", place:"Amsterdam", country:"Netherlands", lat:52.37, lon:4.90,
+    note:"The Royal Palace on Dam Square was built in the 17th century as the city hall. Amsterdam sits on soft, wet ground, so the building stands on 13,659 wooden piles driven deep into the soil. It is one of my favourite pieces of foundation engineering.",
+    memory:"",
+    photos:[["nl-01","On a canal bridge in Amsterdam"],["bel-25","The Royal Palace on Dam Square"],["bel-27","Dam Square and the Royal Palace"],["nl-02","On the road through the Netherlands"]] },
+  { id:"izmir", city:"İzmir & Aydın", road:1110, place:"İzmir & Kuşadası", country:"Türkiye", lat:38.42, lon:27.14,
+    note:"İzmir's Konak Clock Tower dates from 1901. Down the coast in Kuşadası, Pigeon Island (Güvercinada) is joined to the mainland by a causeway and topped by an old fortress.",
+    memory:"",
+    photos:[["izm-01","Konak Clock Tower, İzmir"],["izm-02","Overlooking the Aegean"],["izm-03","On the Aegean shore"],["izm-14","Above the harbour"],["izm-04","I ♥ Kuşadası sign at night"],["izm-05","Kuşadası bay with a cruise ship"],["izm-10","Pigeon Island seen from the water"],["izm-07","On a boat in the Aegean"],["izm-09","Waterfall park"]] },
+  { id:"ephesus", city:"Selçuk, İzmir", road:1140, place:"Ephesus", country:"Türkiye", lat:37.94, lon:27.34,
+    note:"The Library of Celsus was built in the early 2nd century AD and once held around 12,000 scrolls. Its two-storey façade was rebuilt in the 1970s from its original fallen pieces, a method called anastylosis.",
+    memory:"",
+    photos:[["izm-06","At the Library of Celsus"],["izm-13","The Library of Celsus façade"],["izm-08","Among the columns of Ephesus"]] },
+  { id:"pamukkale", city:"Denizli", road:970, place:"Pamukkale & Hierapolis", country:"Türkiye", lat:37.92, lon:29.12,
+    note:"The white terraces are travertine: calcium carbonate that precipitates out of warm spring water as it cools and loses CO₂. Above them, the Roman theatre of Hierapolis still shows how a hillside was shaped to carry sound to thousands of seats.",
+    memory:"",
+    photos:[["den-01","In the travertine pools of Pamukkale"],["den-02","Standing in a travertine pool"],["izm-11","The theatre of Hierapolis"],["izm-12","Hierapolis theatre and the valley"]] },
+  { id:"cappadocia", city:"Nevşehir", road:490, place:"Cappadocia", country:"Türkiye", lat:38.64, lon:34.83,
+    note:"The fairy chimneys formed when soft volcanic tuff eroded around harder caps of basalt. People carved homes, churches and a whole rock citadel out of that same soft stone.",
+    memory:"",
+    photos:[["kap-01","Hot-air balloons at sunrise"],["kap-02","Fairy chimneys"],["kap-04","A rock-cut citadel above the town"],["kap-05","Rock citadel and cave houses"]] },
+  { id:"konya", city:"Konya", road:560, place:"Konya Tropical Butterfly Garden", country:"Türkiye", lat:37.87, lon:32.48,
+    note:"A tropical climate built inside a dome in the middle of the dry Anatolian plateau. Keeping the heat and humidity steady for living butterflies is a serious HVAC problem.",
+    memory:"",
+    photos:[["kon-03","In the tropical greenhouse"],["kon-04","Butterfly collection display"],["kon-01","Butterfly display under lights"],["kon-02","Butterfly display"],["kon-06","Butterfly display"],["kon-05","Hanging tropical plants"]] },
+  { id:"road", place:"On the road", country:"Türkiye", lat:39.6, lon:36.3, noDist:true,
+    note:"Some of the best views are the ones between destinations: long green plateaus, power lines and mountains on the horizon.",
+    memory:"",
+    photos:[["road-02","Green plains and distant mountains"],["road-01","Hills beside the highway"],["road-03","Highway beneath a green hill"]] }
+];
+
+const MUN = {
+  mun1:[["mun1-02","Speaking at the podium as the delegate of China"],["mun1-01","Ready for the conference"],["mun1-05","Drafting with my bloc"],["mun1-04","With fellow delegates"],["mun1-03","Committee session"]],
+  mun2:[["mun2-11","At the chair's podium"],["mun2-03","On the chair's dais"],["mun2-05","Moderating debate"],["mun2-01","Collecting votes"],["mun2-02","In committee"],["mun2-06","WHO committee session"],["mun2-09","Conference day"],["mun2-12","Closing ceremony"],["mun2-13","Committee team at the closing ceremony"],["mun2-17","With fellow chairs"],["mun2-16","Closing ceremony"],["mun2-18","Closing ceremony group"]]
+};
+const ENG = [["eng-01","Preparing the rocket on the pad"],["eng-02","Rocket on the launch rod"]];
+
+/* ===================== end of editable content ===================== */
+
+const $ = (s, r=document) => r.querySelector(s);
+const $$ = (s, r=document) => [...r.querySelectorAll(s)];
+const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+/* ---------- theme toggle ---------- */
+(() => {
+  const root = document.documentElement;
+  try { const t = localStorage.getItem('ob-theme'); if (t) root.dataset.theme = t; } catch(e){}
+  $('#themeBtn').addEventListener('click', () => {
+    const dark = root.dataset.theme ? root.dataset.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+    root.dataset.theme = dark ? 'light' : 'dark';
+    try { localStorage.setItem('ob-theme', root.dataset.theme); } catch(e){}
+    window.dispatchEvent(new Event('themechange'));
+  });
+})();
+
+/* ---------- lightbox ---------- */
+const LB = { set:[], i:0 };
+const lb = $('#lb');
+function openLB(set, i){ LB.set=set; LB.i=i; showLB(); if(!lb.open) lb.showModal(); }
+function showLB(){ const [f,c]=LB.set[LB.i]; $('#lbImg').src=`img/${f}.jpg?v=20261009`; $('#lbImg').alt=c; $('#lbCap').textContent=`${c}  ·  ${LB.i+1} / ${LB.set.length}`; }
+lb.querySelector('.lb-prev').onclick=()=>{LB.i=(LB.i-1+LB.set.length)%LB.set.length;showLB()};
+lb.querySelector('.lb-next').onclick=()=>{LB.i=(LB.i+1)%LB.set.length;showLB()};
+lb.addEventListener('click',e=>{ if(e.target===lb) lb.close(); });
+document.addEventListener('keydown',e=>{ if(!lb.open) return; if(e.key==='ArrowLeft') lb.querySelector('.lb-prev').click(); if(e.key==='ArrowRight') lb.querySelector('.lb-next').click(); });
+$$('dialog [data-close]').forEach(b=>b.onclick=()=>b.closest('dialog').close());
+$$('[data-lb="eng"]').forEach(b=>b.onclick=()=>openLB(ENG,+b.dataset.i));
+
+/* ---------- MUN galleries ---------- */
+function gallery(el, set, layout){
+  el.innerHTML = set.map(([f,c],i)=>`<button class="${layout[i]||''}" data-i="${i}" aria-label="Open photo: ${esc(c)}"><img src="img/${f}.jpg?v=20261009" alt="${esc(c)}" loading="lazy"></button>`).join('');
+  el.addEventListener('click',e=>{ const b=e.target.closest('button'); if(b) openLB(set,+b.dataset.i); });
+}
+gallery($('#g-mun2'), MUN.mun2, ['tall','wide','','','','','','wide','','','','']);
+gallery($('#g-mun1'), MUN.mun1, ['tall','wide','','wide']);
+
+/* ---------- distance helper ---------- */
+const HOME = {lat:37.07, lon:37.38};
+function km(a,b){ const R=6371, r=Math.PI/180; const dLa=(b.lat-a.lat)*r, dLo=(b.lon-a.lon)*r;
+  const h=Math.sin(dLa/2)**2+Math.cos(a.lat*r)*Math.cos(b.lat*r)*Math.sin(dLo/2)**2; return 2*R*Math.asin(Math.sqrt(h)); }
+const showCity = t => t.city && !t.city.split(/[ ,&]+/).some(w=>w && t.place.includes(w));
+const distLabel = t => t.road ? `≈${t.road.toLocaleString('en-US')} km by road` : `${Math.round(km(HOME,t)).toLocaleString('en-US')} km by air`;
+const fmtLat = (v)=>`${Math.abs(v).toFixed(2)}°${v>=0?'N':'S'}`, fmtLon=(v)=>`${Math.abs(v).toFixed(2)}°${v>=0?'E':'W'}`;
+
+/* ---------- trips ---------- */
+const pinSvg='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 3v4M12 17v4M3 12h4M17 12h4"/></svg>';
+$('#trips').innerHTML = TRIPS.map((t,ti)=>{
+  const d = t.noDist ? '' : `<span class="mono">${distLabel(t)} from home</span>`;
+  return `<article class="trip" id="trip-${t.id}">
+    <button class="trip-cover" data-t="${ti}" data-i="0" aria-label="Open ${esc(t.place)} photos"><img src="img/${t.photos[0][0]}.jpg?v=20261009" alt="${esc(t.photos[0][1])}" loading="lazy"><span class="n">${String(ti+1).padStart(2,'0')} / ${String(TRIPS.length).padStart(2,'0')}</span></button>
+    <div>
+      <span class="label">${t.city?esc(t.city)+' · ':''}${esc(t.country)}</span>
+      <h3>${esc(t.place)}</h3>
+      <div class="where"><span class="mono">${fmtLat(t.lat)} ${fmtLon(t.lon)}</span>${d}<span class="mono">${t.photos.length} photos</span></div>
+      <div class="note"><div class="label">${pinSvg}Engineer's eye</div>${esc(t.note)}</div>
+      ${t.memory ? `<div class="memory">${t.memory.split(/\n\s*\n/).map(p=>`<p>${esc(p)}</p>`).join('')}</div>` : `<div class="memory empty">Travel story coming soon.</div>`}
+      <div class="strip">${t.photos.map(([f,c],i)=>`<button data-t="${ti}" data-i="${i}" aria-label="Open photo: ${esc(c)}"><img src="img/${f}.jpg?v=20261009" alt="${esc(c)}" loading="lazy"></button>`).join('')}</div>
+    </div></article>`;
+}).join('');
+$('#trips').addEventListener('click',e=>{ const b=e.target.closest('button[data-t]'); if(b) openLB(TRIPS[+b.dataset.t].photos,+b.dataset.i); });
+
+/* ---------- blog ---------- */
+(() => {
+  const cats = ['All', ...new Set(BLOG_POSTS.map(p=>p.category).filter(Boolean))];
+  let cur = 'All';
+  const posts = [...BLOG_POSTS].sort((a,b)=>String(b.date).localeCompare(String(a.date)));
+  const fmtDate = d => { const x=new Date(d+'T12:00:00'); return isNaN(x)?d:x.toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'}); };
+  function render(){
+    const F=$('#blogFilters'), P=$('#posts');
+    if(!posts.length){
+      F.hidden=true;
+      P.innerHTML=`<div class="empty-blog"><svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="2"><rect x="18" y="14" width="70" height="92"/><path d="M30 34h46M30 48h46M30 62h30" stroke-dasharray="4 4"/><path d="M96 24l10 10-38 38-14 4 4-14z"/><path d="M90 30l10 10"/></svg>
+        <div><span class="label">On the drafting table</span><h3>First posts are being written</h3>
+        <p>This is where I'll publish essays about engineering, notes from my projects, memories from my travels, and reflections on leadership.</p>
+        <div class="soon"><span class="chip">Engineering</span><span class="chip">Memories</span><span class="chip">Leadership</span><span class="chip">Thoughts</span></div></div></div>`;
+      return;
+    }
+    F.hidden=false;
+    F.innerHTML=cats.map(c=>`<button aria-pressed="${c===cur}" data-c="${esc(c)}">${esc(c)}</button>`).join('');
+    const list=posts.filter(p=>cur==='All'||p.category===cur);
+    P.className='posts';
+    P.innerHTML=list.map(p=>`<button class="post" data-k="${posts.indexOf(p)}"><span class="label">${esc(p.category||'')} · ${esc(fmtDate(p.date))}</span><h3>${esc(p.title)}</h3><p>${esc(p.summary||'')}</p><span class="more">Read →</span></button>`).join('');
+  }
+  $('#blogFilters').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;cur=b.dataset.c;render();});
+  $('#posts').addEventListener('click',e=>{const b=e.target.closest('.post');if(!b)return;const p=posts[+b.dataset.k];
+    $('#readerBody').innerHTML=`<span class="label">${esc(p.category||'')} · ${esc(fmtDate(p.date))}</span><h2>${esc(p.title)}</h2>${String(p.body||'').split(/\n\s*\n/).map(x=>`<p>${esc(x.trim())}</p>`).join('')}`;
+    $('#reader').showModal();});
+  render();
+})();
+
+/* ---------- software projects ---------- */
+(() => {
+  const ghIcon='<svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>';
+  const card = p => {
+    const code=`https://github.com/${GITHUB_USER}/${p.repo}`, demo=`https://${GITHUB_USER.toLowerCase()}.github.io/${p.repo}/`;
+    const imgs=[p.img,p.img2].filter(Boolean);
+    return `<article class="proj ${p.featured?'feat':''}">
+      <div class="proj-media">${imgs.map((f,i)=>`<button data-src="${f}" data-t="${esc(p.title)}" aria-label="Open ${esc(p.title)} image"><img src="img/${f}.jpg?v=20261009" alt="${esc(p.title)} screenshot" loading="lazy"></button>`).join('')}</div>
+      <div class="proj-body">
+        <span class="label">${esc(p.kicker)}</span>
+        <h4>${esc(p.title)}</h4>
+        <p>${esc(p.summary)}</p>
+        ${p.points?.length?`<ul>${p.points.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>`:''}
+        <div class="proj-stack">${p.stack.map(x=>`<span class="chip">${esc(x)}</span>`).join('')}</div>
+        <div class="proj-links"><a class="btn solid" href="${code}" target="_blank" rel="noopener">${ghIcon} Code on GitHub</a>${p.demo?`<a class="btn" href="${demo}" target="_blank" rel="noopener">Try it in the browser ↗</a>`:''}</div>
+      </div></article>`;
+  };
+  const feat=PROJECTS.filter(p=>p.featured), rest=PROJECTS.filter(p=>!p.featured);
+  $('#projList').innerHTML = feat.map(card).join('') + `<div class="proj-grid">${rest.map(card).join('')}</div>`;
+  $('#projList').addEventListener('click',e=>{ const b=e.target.closest('button[data-src]'); if(!b) return;
+    const set=$$('#projList button[data-src]').map(x=>[x.dataset.src,x.dataset.t]); openLB(set,set.findIndex(x=>x[0]===b.dataset.src)); });
+})();
+
+/* ---------- what's next list ---------- */
+$('#nextList').innerHTML = NEXT_UP.map(n=>`<li><span class="st st-${esc(n.status).replace(/\s+/g,'-')}">${esc(n.status)}</span><b>${esc(n.title)}</b><span>${esc(n.detail||'')}</span></li>`).join('');
+
+/* ---------- contacts ---------- */
+(() => {
+  const c=$('#contacts'); const rows=[];
+  if(CONTACT.email) rows.push(`<div class="copy-row"><span class="label">Email</span><span>${esc(CONTACT.email)}</span><button data-copy="${esc(CONTACT.email)}">Copy</button></div>`);
+  [['github','GitHub'],['linkedin','LinkedIn'],['instagram','Instagram']].forEach(([k,n])=>{ if(CONTACT[k]) rows.push(`<a class="label" style="color:var(--ink)" href="${esc(CONTACT[k])}" target="_blank" rel="noopener">${n} ↗</a>`); });
+  
+  c.innerHTML=rows.join('');
+  c.addEventListener('click',e=>{const b=e.target.closest('[data-copy]');if(!b)return;
+    navigator.clipboard?.writeText(b.dataset.copy).then(()=>b.textContent='Copied',()=>b.textContent='Select to copy');});
+})();
+
+/* ---------- active nav link ---------- */
+(() => {
+  const links=$$('.links a'); const secs=links.map(a=>$(a.getAttribute('href')));
+  const io=new IntersectionObserver(es=>{es.forEach(en=>{ if(en.isIntersecting){ links.forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+en.target.id)); } });},{rootMargin:'-45% 0px -50% 0px'});
+  secs.forEach(s=>s&&io.observe(s));
+})();
+
+/* =====================================================================
+   BACKGROUND: blueprint grid + meshing gear trains + measuring cursor
+   ===================================================================== */
+(() => {
+  const cv=$('#bg'), ctx=cv.getContext('2d');
+  let W=0,H=0,dpr=1, colors={};
+  const readColors=()=>{ colors={grid:css('--grid'),strong:css('--grid-strong'),gear:css('--gear'),accent:css('--accent'),ink:css('--ink-soft'),paper:css('--paper')}; };
+  function resize(){ dpr=Math.min(devicePixelRatio||1,2); W=innerWidth; H=innerHeight; cv.width=W*dpr; cv.height=H*dpr; ctx.setTransform(dpr,0,0,dpr,0,0); }
+  resize(); readColors();
+  addEventListener('resize',resize); addEventListener('themechange',()=>setTimeout(readColors,30));
+  matchMedia('(prefers-color-scheme: dark)').addEventListener('change',()=>setTimeout(readColors,30));
+
+  // gear trains: each gear {n teeth, m module(px per tooth), parent, dir angle}
+  const M=9; // module in px
+  function train(spec){ // spec: list of [teeth, angleFromParent]
+    const gears=[]; spec.forEach(([n,ang],k)=>{ const g={n,r:n*M/2,ang,a:0,parent:k?gears[k-1]:null}; gears.push(g); }); return gears; }
+  const trainA = train([[34,0],[14,-2.3],[22,-1.2],[12,-.3]]);
+  const trainB = train([[20,0],[11,.6],[26,1.4]]);
+  let mx=-999,my=-999, scrollV=0, lastY=scrollY, boost=0;
+  addEventListener('pointermove',e=>{mx=e.clientX;my=e.clientY;},{passive:true});
+  addEventListener('pointerleave',()=>{mx=my=-999});
+  addEventListener('scroll',()=>{ scrollV+= (scrollY-lastY); lastY=scrollY; },{passive:true});
+  addEventListener('pointerdown',e=>{ boost=Math.min(boost+3,6); });
+
+  function place(gears, x0, y0){
+    gears.forEach(g=>{ if(!g.parent){g.x=x0;g.y=y0;return;} const p=g.parent; const d=p.r+g.r; g.x=p.x+Math.cos(g.ang)*d; g.y=p.y+Math.sin(g.ang)*d; });
+  }
+  function drive(gears, a0){
+    gears.forEach(g=>{ if(!g.parent){g.a=a0;return;} const p=g.parent, th=g.ang; g.a = th+Math.PI - Math.PI/g.n - (p.a-th)*p.n/g.n; });
+  }
+  function drawGear(g, hot){
+    const n=g.n, rr=g.r-M*1.15, ro=g.r+M*.95, step=Math.PI*2/n;
+    ctx.beginPath();
+    for(let i=0;i<n;i++){ const c=g.a+i*step;
+      const a1=c-step*.5, a2=c-step*.28, a3=c-step*.14, a4=c+step*.14, a5=c+step*.28;
+      if(i===0) ctx.moveTo(g.x+Math.cos(a1)*rr,g.y+Math.sin(a1)*rr);
+      ctx.lineTo(g.x+Math.cos(a2)*rr,g.y+Math.sin(a2)*rr);
+      ctx.lineTo(g.x+Math.cos(a3)*ro,g.y+Math.sin(a3)*ro);
+      ctx.lineTo(g.x+Math.cos(a4)*ro,g.y+Math.sin(a4)*ro);
+      ctx.lineTo(g.x+Math.cos(a5)*rr,g.y+Math.sin(a5)*rr);
+      ctx.lineTo(g.x+Math.cos(c+step*.5)*rr,g.y+Math.sin(c+step*.5)*rr);
+    }
+    ctx.closePath();
+    ctx.strokeStyle=hot?colors.accent:colors.gear; ctx.lineWidth=hot?1.4:1.2; ctx.stroke();
+    // hub, spokes, pitch circle
+    ctx.beginPath(); ctx.arc(g.x,g.y,Math.max(6,g.r*.18),0,7); ctx.stroke();
+    ctx.setLineDash([3,5]); ctx.beginPath(); ctx.arc(g.x,g.y,g.r,0,7); ctx.stroke(); ctx.setLineDash([]);
+    if(g.r>60){ for(let k=0;k<5;k++){ const a=g.a+k*Math.PI*2/5; ctx.beginPath(); ctx.moveTo(g.x+Math.cos(a)*g.r*.2,g.y+Math.sin(a)*g.r*.2); ctx.lineTo(g.x+Math.cos(a)*(rr-6),g.y+Math.sin(a)*(rr-6)); ctx.stroke(); } }
+    ctx.beginPath(); ctx.moveTo(g.x-5,g.y); ctx.lineTo(g.x+5,g.y); ctx.moveTo(g.x,g.y-5); ctx.lineTo(g.x,g.y+5); ctx.stroke();
+  }
+  let angA=0, angB=0, last=performance.now();
+  function frame(now){
+    const dt=Math.min(.05,(now-last)/1000); last=now;
+    ctx.clearRect(0,0,W,H);
+    // grid
+    const minor=24, major=120, off=-(scrollY*.15)%major;
+    ctx.lineWidth=1;
+    ctx.strokeStyle=colors.grid; ctx.beginPath();
+    for(let x=0;x<W;x+=minor){ctx.moveTo(x+.5,0);ctx.lineTo(x+.5,H);} for(let y=off%minor;y<H;y+=minor){ctx.moveTo(0,y+.5);ctx.lineTo(W,y+.5);} ctx.stroke();
+    ctx.strokeStyle=colors.strong; ctx.beginPath();
+    for(let x=0;x<W;x+=major){ctx.moveTo(x+.5,0);ctx.lineTo(x+.5,H);} for(let y=off;y<H;y+=major){ctx.moveTo(0,y+.5);ctx.lineTo(W,y+.5);} ctx.stroke();
+
+    // speeds: idle + scroll + click boost
+    scrollV*=.9; boost*=.97;
+    const w = (reduceMotion?0:.12) + Math.min(Math.abs(scrollV)*.004,1.6) + boost*.25;
+    angA += w*dt*(scrollV<0?-1:1); angB -= w*dt*1.3;
+    const big = W>760;
+    place(trainA, W-(big?150:90), H-(big?120:70)); drive(trainA, angA);
+    place(trainB, big?110:60, (big?150:130)); drive(trainB, angB);
+    const near=g=>Math.hypot(mx-g.x,my-g.y)<g.r+M;
+    [...trainA,...trainB].forEach(g=>drawGear(g, near(g)));
+
+    // gear readout: only while the pointer is on a gear
+    const hovered=[...trainA,...trainB].find(near);
+    if(hovered && matchMedia('(pointer:fine)').matches){
+      const g=hovered, mm=v=>(v*0.2646).toFixed(1);
+      const rpm=(w*60/(2*Math.PI)*(trainA.includes(g)?trainA[0].n:trainB[0].n)/g.n).toFixed(1);
+      ctx.strokeStyle=colors.accent; ctx.lineWidth=1; ctx.setLineDash([2,4]);
+      ctx.beginPath(); ctx.moveTo(mx,my); ctx.lineTo(g.x,g.y); ctx.stroke(); ctx.setLineDash([]);
+      ctx.beginPath(); ctx.arc(mx,my,3,0,7); ctx.stroke();
+      ctx.font='500 10px "IBM Plex Mono", monospace';
+      const txt=`${g.n}T · r ${mm(g.r)} mm · ${rpm} rpm`;
+      const tw=ctx.measureText(txt).width+12;
+      const tx=Math.min(Math.max(8,mx+14),W-tw-8), ty=Math.min(Math.max(20,my-28),H-8);
+      ctx.fillStyle=colors.paper; ctx.fillRect(tx,ty-13,tw,19);
+      ctx.strokeStyle=colors.accent; ctx.strokeRect(tx+.5,ty-12.5,tw-1,18);
+      ctx.fillStyle=colors.ink; ctx.fillText(txt,tx+6,ty);
+    }
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+})();
+
+/* =====================================================================
+   LAUNCH LAB: 2D model-rocket flight simulation
+   ===================================================================== */
+(() => {
+  const MOTORS = { // Estes-class approximations: total impulse (N·s), burn (s), propellant (kg), case (kg), default delay (s)
+    A:{I:2.5, tb:0.5,  prop:0.0031, cas:0.0131, d:3},
+    B:{I:5.0, tb:0.8,  prop:0.0062, cas:0.0128, d:4},
+    C:{I:10,  tb:1.85, prop:0.0123, cas:0.0118, d:5}
+  };
+  let motor='B';
+  const ui={mass:$('#mass'),delay:$('#delay'),angle:$('#angle'),wind:$('#wind')};
+  const cv=$('#sim'), ctx=cv.getContext('2d');
+  let res=null, animT=0, anim=null;
+
+  function simulate(){
+    const m0=MOTORS[motor], dry=+ui.mass.value/1000, delay=+ui.delay.value, ang=+ui.angle.value*Math.PI/180, wind=+ui.wind.value;
+    const rho=1.2, Ab=Math.PI*0.0125**2, Cdb=0.75, Ac=Math.PI*0.15**2, Cdc=1.5, g=9.81, dt=0.002, rod=1.0;
+    let t=0,x=0,y=0,vx=0,vy=0, open=false, vmax=0, apo=0, tApo=0, vEj=null, path=[[0,0,0,0]];
+    const tEj=m0.tb+delay;
+    while(t<200){
+      const prop = t<m0.tb ? m0.prop*(1-t/m0.tb) : 0;
+      const m = dry+m0.cas+prop;
+      const T = t<m0.tb ? m0.I/m0.tb : 0;
+      const onRod = Math.hypot(x,y)<rod && T>0;
+      let rx=vx-(onRod?0:wind), ry=vy; const v=Math.hypot(rx,ry);
+      if(!open && t>=tEj){ open=true; vEj=Math.hypot(vx,vy); }
+      const CdA = open? Cdb*Ab+Cdc*Ac : Cdb*Ab;
+      const D = 0.5*rho*CdA*v*v;
+      let dx,dy; if(onRod||v<1e-6){dx=Math.sin(ang);dy=Math.cos(ang);} else {dx=vx/Math.hypot(vx,vy)||0;dy=vy/Math.hypot(vx,vy)||1;}
+      let ax=(T*dx-(v?D*rx/v:0))/m, ay=(T*dy-(v?D*ry/v:0))/m-g;
+      if(onRod){ const a=ax*dx+ay*dy; ax=Math.max(0,a)*dx; ay=Math.max(0,a)*dy; }
+      if(y<=0 && T*dy<m*g && t<0.05){ ax=ay=0; } // sits on pad until thrust lifts it
+      vx+=ax*dt; vy+=ay*dt; x+=vx*dt; y+=vy*dt; t+=dt;
+      const sp=Math.hypot(vx,vy); if(sp>vmax)vmax=sp; if(y>apo){apo=y;tApo=t;}
+      if(Math.round(t/dt)%10===0) path.push([x,y,t,open?1:0]);
+      if(t>0.2 && y<0){ y=0; path.push([x,0,t,open?1:0]); break; }
+    }
+    return {path,apo,tApo,vmax,vEj:vEj??0,tEj,ejected:vEj!=null,T:t,drift:x,delay};
+  }
+
+  function fmt(n,d=0){return n.toLocaleString('en-US',{maximumFractionDigits:d,minimumFractionDigits:d});}
+  function update(){
+    $('#massO').textContent=ui.mass.value+' g';
+    $('#delayO').textContent=(+ui.delay.value).toFixed(1)+' s';
+    $('#angleO').textContent=ui.angle.value+'°';
+    $('#windO').textContent=ui.wind.value+' m/s';
+    res=simulate();
+    $('#rApo').textContent=fmt(res.apo);
+    $('#rV').textContent=fmt(res.vmax); $('#rVk').textContent=`m/s · ${fmt(res.vmax*3.6)} km/h`;
+    $('#rEj').textContent=res.ejected?fmt(res.vEj,1):'n/a';
+    $('#rT').textContent=fmt(res.T,1);
+    $('#rD').textContent=fmt(Math.abs(res.drift));
+    const v=$('#verdict'); v.className='verdict';
+    const dtA=res.tEj-res.tApo;
+    let msg;
+    if(!res.ejected){v.classList.add('bad');msg='The rocket hits the ground before the ejection charge fires. Use a shorter delay.';}
+    else if(res.vEj>22){v.classList.add('bad');msg=`Ejection ${dtA>0?'after':'before'} apogee at ${fmt(res.vEj,1)} m/s. That is fast enough to tear the parachute or snap the shock cord. Try a ${dtA>0?'shorter':'longer'} delay.`;}
+    else if(res.vEj>12){v.classList.add('warn');msg=`Ejection ${fmt(Math.abs(dtA),1)} s ${dtA>0?'after':'before'} apogee at ${fmt(res.vEj,1)} m/s. Survivable, but a ${dtA>0?'shorter':'longer'} delay would be gentler.`;}
+    else msg=`Clean deployment ${fmt(Math.abs(dtA),1)} s ${dtA>0?'after':'before'} apogee at ${fmt(res.vEj,1)} m/s. Good recovery.`;
+    $('#verdictT').textContent=msg;
+    startAnim();
+  }
+  function startAnim(){ animT=performance.now(); if(!anim) anim=requestAnimationFrame(draw); }
+
+  function draw(now){
+    anim=null;
+    const r=cv.getBoundingClientRect(), dpr=Math.min(devicePixelRatio||1,2);
+    if(cv.width!==Math.round(r.width*dpr)){cv.width=Math.round(r.width*dpr);cv.height=Math.round(r.height*dpr);}
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+    const W=r.width,H=r.height, P={l:52,r:18,t:18,b:36};
+    const ink=css('--ink'), soft=css('--ink-soft'), grid=css('--grid-strong'), acc=css('--accent'), paper=css('--paper');
+    ctx.clearRect(0,0,W,H);
+    const p=res.path;
+    const xs=p.map(q=>q[0]); let x0=Math.min(0,...xs), x1=Math.max(10,...xs);
+    const yMax=nice(Math.max(10,res.apo*1.12));
+    const span=Math.max(x1-x0, yMax*0.35); const xc=(x0+x1)/2; x0=xc-span/2; x1=xc+span/2;
+    const X=v=>P.l+(v-x0)/(x1-x0)*(W-P.l-P.r), Y=v=>H-P.b-(v/yMax)*(H-P.t-P.b);
+    // grid + y ticks
+    ctx.font='500 10px "IBM Plex Mono", monospace'; ctx.lineWidth=1;
+    const step=yMax/5;
+    for(let i=0;i<=5;i++){ const yy=Y(i*step); ctx.strokeStyle=grid; ctx.beginPath(); ctx.moveTo(P.l,yy);ctx.lineTo(W-P.r,yy);ctx.stroke(); ctx.fillStyle=soft; ctx.textAlign='right'; ctx.fillText(fmt(i*step)+' m',P.l-6,yy+3); }
+    const xstep=niceStep((x1-x0)/5); ctx.textAlign='center';
+    for(let v=Math.ceil(x0/xstep)*xstep; v<=x1; v+=xstep){ const xx=X(v); ctx.strokeStyle=grid; ctx.beginPath(); ctx.moveTo(xx,P.t);ctx.lineTo(xx,H-P.b);ctx.stroke(); ctx.fillStyle=soft; ctx.fillText(fmt(v)+' m',xx,H-P.b+16); }
+    // ground
+    ctx.strokeStyle=ink; ctx.lineWidth=1.5; ctx.beginPath(); ctx.moveTo(P.l,Y(0)); ctx.lineTo(W-P.r,Y(0)); ctx.stroke();
+    // progress
+    const dur=Math.min(6000, 1500+res.T*120);
+    const prog = reduceMotion?1:Math.min(1,(now-animT)/dur);
+    const tNow=prog*res.T;
+    // path: boost/coast solid ink, chute dashed accent
+    ctx.lineWidth=2;
+    let k=1; for(;k<p.length && p[k][2]<=tNow;k++){}
+    const seg=(from,to,open)=>{ ctx.strokeStyle=open?acc:ink; ctx.setLineDash(open?[5,4]:[]); ctx.beginPath(); ctx.moveTo(X(p[from][0]),Y(p[from][1])); for(let i=from+1;i<=to;i++) ctx.lineTo(X(p[i][0]),Y(p[i][1])); ctx.stroke(); };
+    let s=0; for(let i=1;i<k;i++){ if(p[i][3]!==p[s][3]||i===k-1){ seg(s,i,p[s][3]); s=i; } }
+    ctx.setLineDash([]);
+    // apogee marker
+    const ia=p.reduce((b,q,i)=>q[1]>p[b][1]?i:b,0);
+    if(p[ia][2]<=tNow){ const ax=X(p[ia][0]), ay=Y(p[ia][1]); ctx.strokeStyle=soft; ctx.setLineDash([2,3]); ctx.beginPath(); ctx.moveTo(P.l,ay); ctx.lineTo(ax,ay); ctx.stroke(); ctx.setLineDash([]);
+      ctx.fillStyle=ink; ctx.textAlign='left'; ctx.fillText(`APOGEE ${fmt(res.apo)} m · t=${fmt(res.tApo,1)} s`, Math.min(ax+8,W-200), ay-8); }
+    // ejection marker
+    const ie=p.findIndex(q=>q[3]===1);
+    if(ie>0 && p[ie][2]<=tNow){ const ex=X(p[ie][0]), ey=Y(p[ie][1]); ctx.strokeStyle=acc; ctx.lineWidth=1.5; ctx.beginPath(); ctx.arc(ex,ey,6,0,7); ctx.stroke(); ctx.fillStyle=acc; ctx.textAlign='left'; ctx.fillText('EJECTION',ex+10,ey+14); }
+    // rocket marker
+    const q=p[Math.max(0,k-1)];
+    const qx=X(q[0]), qy=Y(q[1]);
+    ctx.fillStyle=q[3]?acc:ink; ctx.beginPath(); ctx.arc(qx,qy,4.5,0,7); ctx.fill();
+    if(q[3]){ ctx.strokeStyle=acc; ctx.lineWidth=1.2; ctx.beginPath(); ctx.arc(qx,qy-16,11,Math.PI,0); ctx.moveTo(qx-11,qy-16); ctx.lineTo(qx,qy); ctx.lineTo(qx+11,qy-16); ctx.stroke(); }
+    // clock
+    ctx.fillStyle=soft; ctx.textAlign='right'; ctx.fillText(`T+${fmt(tNow,1)} s  ·  ${motor === 'A' ? 'A8-3' : motor==='B'?'B6-4':'C6-5'}`, W-P.r, P.t+10);
+    if(prog<1) anim=requestAnimationFrame(draw);
+  }
+  function niceStep(raw){ const p=10**Math.floor(Math.log10(raw)); const n=raw/p; return (n<1.5?1:n<3?2:n<7?5:10)*p; }
+  function nice(v){ const s=niceStep(v/5); return Math.ceil(v/s)*s; }
+
+  $$('.motors button').forEach(b=>b.onclick=()=>{ motor=b.dataset.m; $$('.motors button').forEach(x=>x.setAttribute('aria-pressed',x===b)); ui.delay.value=MOTORS[motor].d; update(); });
+  Object.values(ui).forEach(i=>i.addEventListener('input',update));
+  $('#launch').onclick=startAnim; cv.addEventListener('click',startAnim);
+  addEventListener('resize',()=>{ if(!anim) anim=requestAnimationFrame(draw); });
+  addEventListener('themechange',()=>setTimeout(()=>{ if(!anim) anim=requestAnimationFrame(draw); },40));
+  update();
+})();
+
+/* ---------- travel map: two insets with numbered markers + legend ---------- */
+(() => {
+  const cv=$('#map'), ctx=cv.getContext('2d');
+  const num=t=>TRIPS.indexOf(t)+1;
+  const panels=[
+    {key:'eu',title:'EUROPE',lon:[2.55,5.35],lat:[50.65,52.6],ids:['brussels','bruges','leuven','coast','amsterdam'],sub:'by air'},
+    {key:'tr',title:'TÜRKİYE',lon:[26.6,37.9],lat:[36.8,39.0],ids:['izmir','ephesus','pamukkale','cappadocia','konya'],home:true,sub:'by road'}
+  ];
+  const byId=id=>TRIPS.find(t=>t.id===id);
+  let hover=null, layout=[];
+  // legend
+  $('#mapLegend').innerHTML=panels.map(p=>`<div><span class="label">${p.title} · ${p.sub}</span><ol>${p.ids.map(id=>{const t=byId(id);return `<li><button data-id="${id}"><b>${num(t)}</b><span>${esc(t.place)}${showCity(t)?` <small>(${esc(t.city)})</small>`:''}</span><em>${distLabel(t).replace(/ by (road|air)/,'')}</em></button></li>`}).join('')}</ol></div>`).join('');
+  $('#mapLegend').addEventListener('pointerover',e=>{const b=e.target.closest('button[data-id]'); hover=b?byId(b.dataset.id):null; draw();});
+  $('#mapLegend').addEventListener('pointerleave',()=>{hover=null;draw();});
+  $('#mapLegend').addEventListener('click',e=>{const b=e.target.closest('button[data-id]'); if(b) document.getElementById('trip-'+b.dataset.id).scrollIntoView({behavior:reduceMotion?'auto':'smooth'});});
+  function setSize(){ const w=cv.getBoundingClientRect().width; cv.style.height=(w<700?Math.round(w*0.78)+Math.round(w*0.42):300)+'px'; }
+  function makeProj(p,rect){
+    const k=Math.cos(((p.lat[0]+p.lat[1])/2)*Math.PI/180);
+    const sx=rect.w/((p.lon[1]-p.lon[0])*k), sy=rect.h/(p.lat[1]-p.lat[0]), s=Math.min(sx,sy);
+    const ox=rect.x+(rect.w-(p.lon[1]-p.lon[0])*k*s)/2, oy=rect.y+(rect.h-(p.lat[1]-p.lat[0])*s)/2;
+    return (la,lo)=>[ox+(lo-p.lon[0])*k*s, oy+(p.lat[1]-la)*s];
+  }
+  function badge(x,y,n,on,acc,ink,paper){
+    ctx.beginPath(); ctx.arc(x,y,on?12:10,0,7); ctx.fillStyle=on?acc:ink; ctx.fill();
+    ctx.lineWidth=2; ctx.strokeStyle=paper; ctx.stroke();
+    ctx.fillStyle=paper; ctx.font=`700 ${on?12:11}px "IBM Plex Mono", monospace`; ctx.textAlign='center'; ctx.textBaseline='middle'; ctx.fillText(n,x,y+.5); ctx.textBaseline='alphabetic';
+  }
+  function draw(){
+    const r=cv.getBoundingClientRect(), dpr=Math.min(devicePixelRatio||1,2);
+    if(cv.width!==Math.round(r.width*dpr)||cv.height!==Math.round(r.height*dpr)){cv.width=Math.round(r.width*dpr);cv.height=Math.round(r.height*dpr);}
+    ctx.setTransform(dpr,0,0,dpr,0,0); const W=r.width,H=r.height;
+    const ink=css('--ink'), soft=css('--ink-soft'), grid=css('--grid-strong'), acc=css('--accent'), rule=css('--rule'), paper=css('--surface');
+    ctx.clearRect(0,0,W,H);
+    const stacked=W<700;
+    const rects=stacked?[{x:0,y:0,w:W,h:Math.round(W*0.78)},{x:0,y:Math.round(W*0.78),w:W,h:H-Math.round(W*0.78)}]:[{x:0,y:0,w:W*0.36,h:H},{x:W*0.36,y:0,w:W*0.64,h:H}];
+    layout=[];
+    panels.forEach((p,pi)=>{
+      const R=rects[pi], pad=stacked?22:34, inner={x:R.x+pad,y:R.y+34,w:R.w-pad*2,h:R.h-34-pad};
+      const P=makeProj(p,inner);
+      if(pi===1){ ctx.strokeStyle=rule; ctx.lineWidth=1; ctx.beginPath(); if(stacked){ctx.moveTo(0,R.y+.5);ctx.lineTo(W,R.y+.5);}else{ctx.moveTo(R.x+.5,0);ctx.lineTo(R.x+.5,H);} ctx.stroke(); }
+      ctx.font='500 10px "IBM Plex Mono", monospace'; ctx.fillStyle=soft; ctx.textAlign='left'; ctx.fillText(`${p.title} · ${p.sub}`,R.x+14,R.y+20);
+      ctx.strokeStyle=grid; ctx.lineWidth=1; ctx.setLineDash([2,4]); ctx.beginPath();
+      const step=p.key==='eu'?1:2;
+      for(let lo=Math.ceil(p.lon[0]/step)*step;lo<=p.lon[1];lo+=step){const [a,b]=P(p.lat[0],lo),[c,d]=P(p.lat[1],lo);ctx.moveTo(a,b);ctx.lineTo(c,d);}
+      for(let la=Math.ceil(p.lat[0]/step)*step;la<=p.lat[1];la+=step){const [a,b]=P(la,p.lon[0]),[c,d]=P(la,p.lon[1]);ctx.moveTo(a,b);ctx.lineTo(c,d);}
+      ctx.stroke(); ctx.setLineDash([]);
+      const items=p.ids.map(byId);
+      let hx,hy; if(p.home){[hx,hy]=P(HOME.lat,HOME.lon);
+        items.forEach(t=>{ const [x,y]=P(t.lat,t.lon); const on=hover===t; ctx.strokeStyle=on?acc:soft; ctx.lineWidth=on?2:1; ctx.setLineDash(on?[]:[3,4]);
+          ctx.beginPath(); ctx.moveTo(hx,hy); ctx.quadraticCurveTo((hx+x)/2, Math.min(hy,y)-Math.hypot(x-hx,y-hy)*.14, x,y); ctx.stroke(); ctx.setLineDash([]); });
+      } else { ctx.textAlign='right'; ctx.font='500 10px "IBM Plex Mono", monospace'; ctx.fillStyle=soft; ctx.fillText('Gaziantep ≈3,000 km →',R.x+R.w-14,R.y+R.h-12); }
+      // draw hovered last so it sits on top
+      [...items].sort((a,b)=>(a===hover)-(b===hover)).forEach(t=>{ const [x,y]=P(t.lat,t.lon); layout.push({t,x,y}); badge(x,y,num(t),hover===t,acc,ink,paper); });
+      if(p.home){ ctx.fillStyle=acc; ctx.beginPath(); ctx.arc(hx,hy,7,0,7); ctx.fill(); ctx.strokeStyle=acc; ctx.lineWidth=1.2; ctx.beginPath(); ctx.arc(hx,hy,12,0,7); ctx.stroke();
+        ctx.textAlign='right'; ctx.font='600 12px "IBM Plex Sans", sans-serif'; ctx.fillStyle=acc; ctx.fillText('Gaziantep · home',hx-18,hy+4); }
+      if(hover && items.includes(hover)){ const o=layout.find(o=>o.t===hover); const txt=`${hover.place}${showCity(hover)?` (${hover.city})`:''} · ${distLabel(hover)}`;
+        ctx.font='600 12px "IBM Plex Sans", sans-serif'; const w=ctx.measureText(txt).width+16; const bx=Math.min(Math.max(R.x+6,o.x-w/2),R.x+R.w-w-6), by=Math.max(R.y+28,o.y-46);
+        ctx.fillStyle=paper; ctx.strokeStyle=acc; ctx.lineWidth=1.2; ctx.fillRect(bx,by,w,24); ctx.strokeRect(bx+.5,by+.5,w-1,23); ctx.fillStyle=ink; ctx.textAlign='left'; ctx.fillText(txt,bx+8,by+16); }
+    });
+    $$('#mapLegend button').forEach(b=>b.classList.toggle('on',hover&&b.dataset.id===hover.id));
+  }
+  setSize(); draw();
+  addEventListener('resize',()=>{setSize();draw();});
+  addEventListener('themechange',()=>setTimeout(draw,40));
+  matchMedia('(prefers-color-scheme: dark)').addEventListener('change',()=>setTimeout(draw,40));
+  cv.addEventListener('pointermove',e=>{ const r=cv.getBoundingClientRect(); const px=e.clientX-r.left, py=e.clientY-r.top; let best=null,bd=16; layout.forEach(o=>{const d=Math.hypot(px-o.x,py-o.y); if(d<bd){bd=d;best=o.t;}});
+    if(best!==hover){ hover=best; draw(); } cv.style.cursor=best?'pointer':'default'; });
+  cv.addEventListener('pointerleave',()=>{ if(hover){hover=null;draw();} });
+  cv.addEventListener('click',()=>{ if(hover) document.getElementById('trip-'+hover.id).scrollIntoView({behavior:reduceMotion?'auto':'smooth'}); });
+  document.fonts?.ready?.then(draw);
+})();
+</script>
+
+</body>
+</html>
